@@ -1,0 +1,30 @@
+import os
+
+def file_creETOR():
+    while True: 
+        directory = input("Please enter directory: ")
+
+        if not os.path.isdir(directory):
+            print("Directory name invalid")
+        else:
+            break
+
+    file_name = input("Create a file name: ")
+    user_name = input("Enter your name: ")
+    user_address = input("Enter address: ")
+    user_phone = input("Enter phone number: ")
+    
+    with open(file_name, 'w') as f:
+       line = f"{user_name},{user_address},{user_phone}" 
+       print(line, file=f)
+    
+    with open(file_name, 'r') as f:
+        print("Are the following values correct? ", f.readline())
+
+while True: 
+    
+    file_creETOR()
+        
+    finished = input("Type 'q' to quit or anything else to enter another file")
+    if finished == 'q':
+        break
